@@ -1,7 +1,8 @@
+import { CONTACT_TYPES_ARRAY } from '../constants/index.js';
 const parseType = (type) => {
   const isString = typeof type === 'string';
   if (!isString) return;
-  const isType = (type) => ['personal', 'work', 'home'].includes(type);
+  const isType = (type) => CONTACT_TYPES_ARRAY.includes(type);
   if (isType(type)) return type;
 };
 
