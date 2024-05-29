@@ -22,10 +22,15 @@ export const getAllContactsController = async (req, res) => {
     sortOrder,
     filter,
   });
+
   res.status(200).json({
     status: 200,
     data: contacts,
-    message: 'Successfully found contacts!',
+    message: `${
+      contacts.data.length === 0
+        ? 'No contacts found!'
+        : 'Successfully found contacts!'
+    }`,
   });
 };
 
@@ -59,7 +64,7 @@ export const createContactController = async (req, res, next) => {
 export const deleteContactController = async (req, res, next) => {
   const { contactId } = req.params;
   const contact = await deleteContact(contactId, req.user._id);
-  if (!contact || contact.data === null) {
+  if (!contact) {
     next(createHttpError(404, 'Contact not found!'));
     return;
   }
