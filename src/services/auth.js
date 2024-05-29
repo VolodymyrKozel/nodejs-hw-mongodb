@@ -28,6 +28,7 @@ export const registerUser = async (payload) => {
 
 export const loginUser = async (payload) => {
   const user = await UsersCollection.findOne({ email: payload.email });
+  console.log(user);
   if (!user) {
     throw createHttpError(404, 'User not found!');
   }
@@ -44,11 +45,12 @@ export const loginUser = async (payload) => {
   });
 };
 
-export const refreshUserSession = async (refreshToken, sessionId) => {
+export const refreshUserSession = async ({ sessionId, refreshToken }) => {
   const session = await SessionsCollection.findOne({
     _id: sessionId,
     refreshToken,
   });
+  console.log(session);
 
   if (!session) {
     throw createHttpError(401, 'Session not found!');
