@@ -41,7 +41,8 @@ export const loginUser = async (payload) => {
   if (!isMatch) {
     throw createHttpError(401, 'Unauthorized!');
   }
-  await SessionsCollection.deleteOne({ userId: user._id });
+  // видалити попередні сесії які були створені користувачем з бази даних
+  await SessionsCollection.deleteMany({ userId: user._id });
   const createdSession = createSession();
   return await SessionsCollection.create({
     userId: user._id,
