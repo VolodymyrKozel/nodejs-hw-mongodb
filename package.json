@@ -29,6 +29,7 @@
     "joi": "^17.13.1",
     "mongodb": "^6.6.2",
     "mongoose": "^8.3.5",
+    "nodemailer": "^6.9.13",
     "pino-http": "^10.1.0"
   }
 }
