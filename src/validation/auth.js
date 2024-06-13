@@ -65,3 +65,27 @@ export const requestResetByEmailSchema = Joi.object({
     'any.required': 'Email is required!',
   }),
 });
+
+export const resetPasswordSchema = Joi.object({
+  password: Joi.string()
+    .min(8)
+    .max(20)
+    .alphanum()
+    .uppercase()
+    .lowercase()
+    .required()
+    .messages({
+      'string.base': 'Password must be a type of string!',
+      'string.min': 'Password must be at least {#limit} characters long!',
+      'string.max': 'Password must be no more than {#limit} characters long!',
+      'any.required': 'Password is required!',
+      'string.alphanum': 'Password must contain letters and numbers!',
+      'string.uppercase':
+        'Password must contain at least one uppercase letter!',
+      'string.lowercase':
+        'Password must contain at least one lowercase letter!',
+    }),
+  token: Joi.string().required().messages({
+    'any.required': 'Token is required!',
+  }),
+});
