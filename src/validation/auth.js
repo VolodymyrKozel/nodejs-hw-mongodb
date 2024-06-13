@@ -57,3 +57,11 @@ export const loginUserSchema = Joi.object({
         'Password must contain at least one lowercase letter!',
     }),
 });
+
+export const requestResetByEmailSchema = Joi.object({
+  email: Joi.string().email().required().messages({
+    'string.base': 'Email must be a type of string!',
+    'string.email': 'Email must be a valid email!',
+    'any.required': 'Email is required!',
+  }),
+});
