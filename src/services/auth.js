@@ -99,10 +99,11 @@ export const requestResetToken = async (payload) => {
       expiresIn: FIFTEEN_MINUTES,
     },
   );
+  console.log(payload.email);
   //send email
   await sendEmail({
     from: env(SMTP.SMTP_FROM),
-    to: payload.email,
+    to: user.email,
     subject: 'Reset your password',
     text: `<p>Hi ${user.name}!</p>
     <p> You requested a password reset. If you did not request a password reset, please ignore this email.</p>
