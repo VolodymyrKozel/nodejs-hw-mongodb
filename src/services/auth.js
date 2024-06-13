@@ -3,6 +3,10 @@ import { SessionsCollection } from '../db/models/session.js';
 import { randomBytes } from 'crypto';
 import { FIFTEEN_MINUTES, ONE_DAY } from '../constants/index.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { SMTP } from '../constants/index.js';
+import { env } from '../utils/env.js';
+import { sendEmail } from '../utils/sendMail.js';
 import createHttpError from 'http-errors';
 
 const createSession = () => {
@@ -84,5 +88,25 @@ export const requestResetToken = async (payload) => {
   if (!user) {
     throw createHttpError(404, 'User not found!');
   }
+  //create token
+  const resetToken = jwt.sign(
+    {
+      sub: user._id,
+      email: payload.email,
+    },
+    env('JWT_SECRET'),
+    {
+      expiresIn: FIFTEEN_MINUTES,
+    },
+  );
+  //send email
+  await sendEmail({
+    from: env(SMTP.SMTP_FROM),
+    to: payload.email,
+    subject: 'Reset your password',
+    text: `<p>Hi ${user.name}!</p>
+    <p> You requested a password reset. If you did not request a password reset, please ignore this email.</p>
+    <p> Otherwise, Click <a href="${resetToken}">here</a> to reset your password!</p>`,
+  });
   return user;
 };
