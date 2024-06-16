@@ -32,13 +32,13 @@ router.post(
 );
 
 router.post(
-  '/request-reset-email',
+  '/send-reset-email',
   validateBody(requestResetByEmailSchema),
   ctrlWrapper(requestResetByEmailController),
 );
 
 router.post(
-  '/reset-password',
+  '/reset-pwd',
   validateBody(resetPasswordSchema),
   ctrlWrapper(resetPasswordController),
 );

@@ -40,7 +40,6 @@ export const registerUser = async (payload) => {
 
 export const loginUser = async (payload) => {
   const user = await UsersCollection.findOne({ email: payload.email });
-  console.log(user);
   if (!user) {
     throw createHttpError(401, 'Unauthorized!');
   }
@@ -103,7 +102,6 @@ export const requestResetToken = async (payload) => {
       expiresIn: `${FIFTEEN_MINUTES}ms`,
     },
   );
-  console.log(`${FIFTEEN_MINUTES}m`);
 
   const resetPasswordTemplatePath = path.join(
     TEMPLATES_DIR,
@@ -120,12 +118,21 @@ export const requestResetToken = async (payload) => {
     link: `${env('APP_DOMAIN')}/reset-password?token=${resetToken}`,
   });
   //send email
-  await sendEmail({
-    from: env(SMTP.SMTP_FROM),
-    to: user.email,
-    subject: 'Reset your password',
-    html,
-  });
+  try {
+    await sendEmail({
+      from: env(SMTP.SMTP_FROM),
+      to: user.email,
+      subject: 'Reset your password',
+      html,
+    });
+  } catch (error) {
+    console.log(error);
+    throw createHttpError(
+      500,
+      'Failed to send the email, please try again later.',
+    );
+  }
+
   return user;
 };
 
@@ -147,8 +154,9 @@ export const resetPassword = async (payload) => {
     throw createHttpError(404, 'User not found!');
   }
   const encryptedPassword = await bcrypt.hash(payload.password, 10);
-  return await UsersCollection.findOneAndUpdate(
+  await UsersCollection.findOneAndUpdate(
     { _id: entries.sub },
     { password: encryptedPassword },
   );
+  await SessionsCollection.deleteMany({ userId: user._id });
 };
