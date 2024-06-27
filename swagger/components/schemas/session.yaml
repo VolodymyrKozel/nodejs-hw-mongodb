@@ -1,0 +1,31 @@
+type: object
+required:
+  - accessToken
+  - refreshToken
+  - accessTokenValidUntil
+  - refreshTokenValidUntil
+properties:
+  _id:
+    type: string
+    example: '60c72b2f4f1a4e3d8c7e4b3a'
+  userId:
+    type: string
+    example: '60c72b2f4f1a4e3d8c6e4b3a'
+  accessToken:
+    type: string
+    example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDc0OTkxNjgsImV4cCI6MTYwNzQ5NjU2OCwic3ViIjoiNjBjNzJiMmY0ZjFhNGUzZDhjN2U0YjNhIiwiaWF0IjoxNjA3NDkxMTY4fQ.7fSbEaXs5S5lXU4iR7eIh0h9Lkxk2pX'
+  refreshToken:
+    type: string
+    example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDc0OTkxNjgsImV4cCI6MTYwNzQ5NjU2OCwic3ViIjoiNjBjNzJiMmY0ZjFhNGUzZDhjN2U0YjNhIiwiaWF0IjoxNjA3NDkxMTY4fQ.7fSbEaXs5S5lXU4iR7eIh0h9Lkxk2pX'
+  accessTokenValidUntil:
+    type: string
+    example: '2021-01-01T00:00:00.000Z'
+  refreshTokenValidUntil:
+    type: string
+    example: '2021-01-01T00:00:00.000Z'
+  createdAt:
+    type: string
+    example: '2021-01-01T00:00:00.000Z'
+  updatedAt:
+    type: string
+    example: '2021-01-01T00:00:00.000Z'
