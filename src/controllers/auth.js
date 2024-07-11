@@ -22,6 +22,9 @@ const setupSession = (res, session) => {
 };
 
 export const registerUserController = async (req, res) => {
+    if (req.validationErrors) {
+    throw new HttpError(400, 'Validation Error', { errors: req.validationErrors });
+  }
   const user = await registerUser(req.body);
   res.status(201).json({
     status: 201,
