@@ -4,8 +4,8 @@ This is a complete Node.js backend project built as part of a homework assignmen
 
 The app is a **Contacts Management API** with full CRUD, authentication, avatar upload, email verification, and password recovery — very similar to the famous "goit-node-hw-rest-api" template, but using pure MongoDB instead of PostgreSQL.
 
-Live API: https://nodejs-hw-mongodb-volodymyrkoz.onrender.com  
-API Docs (Swagger): https://nodejs-hw-mongodb-volodymyrkoz.onrender.com/api-docs
+Live API: https://contact-app-backend-mh5h.onrender.com 
+API Docs (Swagger): https://contact-app-backend-mh5h.onrender.com/api-docs
 
 ## Features
 
