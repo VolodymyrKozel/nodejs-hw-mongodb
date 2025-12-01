@@ -44,3 +44,35 @@ API Docs (Swagger): https://nodejs-hw-mongodb-volodymyrkoz.onrender.com/api-docs
 | uuid            | Verification tokens              |
 
 ## Project Structure
+
+src/
+├── controllers/    # Route handlers
+├── middlewares/    # Auth, upload, error handler, validation
+├── models/         # Mongoose schemas (User, Contact)
+├── routes/         # Express routes
+├── services/       # Email service
+├── helpers/        # HttpError, sendEmail, ctrlWrapper
+├── public/avatars  # Temporary upload folder
+├── swagger.json    # OpenAPI spec
+app.js              # Express app setup
+server.js           # Entry point
+
+
+## Environment Variables (.env)
+
+```env
+PORT=3000
+
+MONGODB_URI=mongodb+srv://yourusername:yourpassword@cluster0.xxxxx.mongodb.net/db-contacts
+
+JWT_SECRET=your-super-secret-jwt-key
+BASE_URL=https://nodejs-hw-mongodb-volodymyrkoz.onrender.com
+
+# Cloudinary
+CLOUDINARY_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+
+# Email (used for verification & password reset)
+SENDGRID_API_KEY=SG.xxxx (or any SMTP service)
+SENDER_EMAIL=no-reply@homeaway.com
