@@ -62,18 +62,23 @@ server.js           # Entry point<br>
 ## Environment Variables (.env)
 
 ```env
-PORT=3000
+API_KEY=
+API_SECRET=
+APP_DOMAIN=
+CLOUD_NAME=
+ENABLE_CLOUDINARY=
+JWT_SECRET=
+MONGODB_DB=
+MONGODB_PASSWORD=
+MONGODB_URL=
+MONGODB_USER=
+PORT=
+SMTP_FROM=
+SMTP_HOST=
+SMTP_PASSWORD=
+SMTP_PORT=
+SMTP_USER=
 
-MONGODB_URI=mongodb+srv://yourusername:yourpassword@cluster0.xxxxx.mongodb.net/db-contacts
+GOOGLE_AUTH_CLIENT_ID=
+GOOGLE_AUTH_CLIENT_SECRET=
 
-JWT_SECRET=your-super-secret-jwt-key
-BASE_URL=https://nodejs-hw-mongodb-volodymyrkoz.onrender.com
-
-# Cloudinary
-CLOUDINARY_NAME=your-cloud-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
-
-# Email (used for verification & password reset)
-SENDGRID_API_KEY=SG.xxxx (or any SMTP service)
-SENDER_EMAIL=no-reply@homeaway.com
