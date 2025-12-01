@@ -2,7 +2,7 @@
 
 This is a complete Node.js backend project built as part of a homework assignment to master **MongoDB** and **Mongoose** in a real-world-like REST API.
 
-The app is a **Contacts Management API** with full CRUD, authentication, avatar upload, email verification, and password recovery — very similar to the famous "goit-node-hw-rest-api" template, but using pure MongoDB instead of PostgreSQL.
+The app is a **Contacts Management API** with full CRUD, authentication, avatar upload, email verification, and password recovery.
 
 **Live API:**  
 [![Live API](https://img.shields.io/badge/Live_API-000000?style=for-the-badge&logo=render&logoColor=white)](https://contact-app-backend-mh5h.onrender.com)
