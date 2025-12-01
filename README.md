@@ -46,16 +46,17 @@ API Docs (Swagger): https://nodejs-hw-mongodb-volodymyrkoz.onrender.com/api-docs
 ## Project Structure
 
 src/
-├── controllers/    # Route handlers
-├── middlewares/    # Auth, upload, error handler, validation
-├── models/         # Mongoose schemas (User, Contact)
-├── routes/         # Express routes
-├── services/       # Email service
-├── helpers/        # HttpError, sendEmail, ctrlWrapper
-├── public/avatars  # Temporary upload folder
-├── swagger.json    # OpenAPI spec
-app.js              # Express app setup
-server.js           # Entry point
+├── controllers/    # Route handlers<br>
+├── middlewares/    # Auth, upload, error handler, validation<br>
+├── models/         # Mongoose schemas (User, Contact)<br>
+├── routes/         # Express routes<br>
+├── services/       # Email service<br>
+├── helpers/        # HttpError, sendEmail, ctrlWrapper<br>
+├── public/avatars  # Temporary upload folder<br>
+├── swagger.json    # OpenAPI spec<br>
+app.js              # Express app setup<br>
+server.js           # Entry point<br>
+
 
 
 ## Environment Variables (.env)
